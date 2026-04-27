@@ -1,0 +1,43 @@
+{
+  "info": {
+    "_postman_id": "fdf8ab55-191f-4903-b59d-c6cea5914d59",
+    "name": "Product Management Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54318745",
+    "_collection_link": "https://go.postman.co/collection/54318745-fdf8ab55-191f-4903-b59d-c6cea5914d59?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get all products",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Add product",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Update product",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Delete product",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

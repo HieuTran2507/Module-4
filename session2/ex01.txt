@@ -1,0 +1,42 @@
+# REST API Design - Quản lý nhân sự
+
+## Phần 1: Lý thuyết
+
+Tôi chọn kiến trúc REST cho ứng dụng Quản lý nhân sự thay vì SOAP vì REST linh hoạt và dễ sử dụng hơn. REST sử dụng giao thức HTTP tiêu chuẩn với các phương thức như GET, POST, PUT, DELETE, giúp việc phát triển và tích hợp trở nên đơn giản. Ngoài ra, REST thường sử dụng định dạng JSON nhẹ và dễ đọc hơn XML của SOAP, giúp giảm dung lượng dữ liệu truyền tải và tăng hiệu năng hệ thống. Điều này đặc biệt quan trọng với các ứng dụng web và mobile cần tốc độ nhanh và khả năng mở rộng tốt.
+
+---
+
+## Phần 2: Thiết kế API (Employee)
+
+Base URL:
+
+
+### 1. Lấy danh sách tất cả nhân viên
+- **Method:** GET  
+- **Endpoint:** `/api/employees`
+
+---
+
+### 2. Lấy thông tin một nhân viên theo ID
+- **Method:** GET  
+- **Endpoint:** `/api/employees/{id}`
+
+---
+
+### 3. Tạo mới một nhân viên
+- **Method:** POST  
+- **Endpoint:** `/api/employees`
+
+---
+
+### 4. Cập nhật thông tin nhân viên
+- **Method:** PUT  
+- **Endpoint:** `/api/employees/{id}`
+
+---
+
+### 5. Xóa một nhân viên
+- **Method:** DELETE  
+- **Endpoint:** `/api/employees/{id}`
+
+---

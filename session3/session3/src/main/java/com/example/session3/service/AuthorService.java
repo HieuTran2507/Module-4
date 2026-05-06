@@ -1,6 +1,6 @@
 package com.example.session3.service;
 
-import com.example.session3.model.Author;
+import com.example.session3.model.entity.Author;
 import com.example.session3.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

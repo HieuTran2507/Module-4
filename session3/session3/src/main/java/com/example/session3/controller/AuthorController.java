@@ -1,6 +1,6 @@
 package com.example.session3.controller;
 
-import com.example.session3.model.Author;
+import com.example.session3.model.entity.Author;
 import com.example.session3.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

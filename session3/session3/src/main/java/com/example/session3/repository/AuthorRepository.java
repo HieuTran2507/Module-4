@@ -1,6 +1,6 @@
 package com.example.session3.repository;
 
-import com.example.session3.model.Author;
+import com.example.session3.model.entity.Author;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ public class AuthorRepository {
     private List<Author> authors = new ArrayList<>();
 
     public AuthorRepository() {
-        authors.add(new Author(1,"Nguyễn Văn A", "a@gmail.com"));
-        authors.add(new Author(2,"Nguyễn Văn B", "b@gmail.com"));
-        authors.add(new Author(3,"Nguyễn Văn C", "c@gmail.com"));
+        authors.add(new Author("Nguyễn Văn A", "a@gmail.com"));
+        authors.add(new Author("Nguyễn Văn B", "b@gmail.com"));
+        authors.add(new Author("Nguyễn Văn C", "c@gmail.com"));
     }
 
     public List<Author> findAll(){

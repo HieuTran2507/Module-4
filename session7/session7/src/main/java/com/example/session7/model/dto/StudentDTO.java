@@ -27,12 +27,13 @@ public class StudentDTO {
     public StudentDTO() {
     }
 
-    public StudentDTO(String fullname, String major, int age, double gpa, String studentCode) {
+    public StudentDTO(String fullname, String major, int age, double gpa, String studentCode, ParentsDTO parents) {
         this.fullname = fullname;
         this.major = major;
         this.age = age;
         this.gpa = gpa;
         this.studentCode = studentCode;
+        this.parents = parents;
     }
 
     public String getFullname() {
@@ -73,5 +74,13 @@ public class StudentDTO {
 
     public void setStudentCode(String studentCode) {
         this.studentCode = studentCode;
+    }
+
+    public ParentsDTO getParents() {
+        return parents;
+    }
+
+    public void setParents(ParentsDTO parents) {
+        this.parents = parents;
     }
 }

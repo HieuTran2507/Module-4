@@ -1,5 +1,6 @@
 package com.example.session7.model.dto;
 
+import com.example.session7.validation.ViettelPhone;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
@@ -9,7 +10,7 @@ public class ParentsDTO {
     private String parentName;
 
     @NotBlank(message = "Số điện thoại không được để trống")
-    @Pattern(regexp = "^0\\d{9}$", message = "SĐT phải bắt đầu bằng 0 và có 10 số")
+    @ViettelPhone
     private String phoneNumber;
 
     public ParentsDTO() {

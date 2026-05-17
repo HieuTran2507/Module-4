@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/student")
 public class StudentController {
     @PostMapping
     public ResponseEntity<?> addStudent(@RequestBody @Valid StudentDTO s, BindingResult br){
-
         if (br.hasErrors()){
-            String errorMessage = br.getFieldError().getDefaultMessage();
+            String errorMessage = Objects.requireNonNull(br.getFieldError()).getDefaultMessage();
             APIResponse errResponse = new APIResponse(errorMessage);
             //return ResponseEntity.badRequest().body(br.getAllErrors());
             return ResponseEntity.badRequest().body(errResponse);

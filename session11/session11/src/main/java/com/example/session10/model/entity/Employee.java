@@ -1,40 +1,28 @@
 package com.example.session10.model.entity;
 
+import com.fasterxml.jackson.databind.deser.impl.CreatorCandidate;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "employees")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String fullname;
-    private double salary;
 
-    public Employee() {
-    }
+    private String fullName;
 
-    public Employee(long id, String fullname, double salary) {
-        this.id = id;
-        this.fullname = fullname;
-        this.salary = salary;
-    }
+    private String email;
 
-    public long getId() {
-        return id;
-    }
+    private String department;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    private String avatarUrl;
 
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 }

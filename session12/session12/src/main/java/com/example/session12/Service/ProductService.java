@@ -1,0 +1,60 @@
+package com.example.session12.Service;
+
+import com.example.session12.Model.DTO.ProductRequest;
+import com.example.session12.Model.Entity.Product;
+import com.example.session12.Repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class ProductService {
+
+    private final ProductRepository productRepository;
+
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
+
+    public Product create(ProductRequest request) {
+
+        Product product = Product.builder()
+                .name(request.getName())
+                .description(request.getDescription())
+                .price(request.getPrice())
+                .size(request.getSize())
+                .toppings(request.getToppings())
+                .build();
+
+        return productRepository.save(product);
+    }
+
+    public Product update(Long id,
+                          ProductRequest request) {
+
+        Product product = productRepository
+                .findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Product not found"));
+
+        product.setName(request.getName());
+        product.setDescription(request.getDescription());
+        product.setPrice(request.getPrice());
+        product.setSize(request.getSize());
+        product.setToppings(request.getToppings());
+
+        return productRepository.save(product);
+    }
+
+    public void delete(Long id) {
+
+        Product product = productRepository
+                .findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Product not found"));
+
+        productRepository.delete(product);
+    }
+}

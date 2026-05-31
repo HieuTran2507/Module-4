@@ -8,10 +8,10 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/employee")
@@ -30,5 +30,26 @@ public class EmployeeController {
                 .build();
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @PutMapping("/avatar/{id}")
+    public ResponseEntity<Response<Employee>>
+    uploadAvatar(
+            @PathVariable Long id,
+            @RequestParam("file")
+            MultipartFile file
+    ) throws IOException {
+
+        Employee employee =
+                es.uploadAvatar(id, file);
+
+        Response<Employee> response =
+                Response.<Employee>builder()
+                        .status("SUCCESS")
+                        .message("Upload ảnh thành công")
+                        .data(employee)
+                        .build();
+
+        return ResponseEntity.ok(response);
     }
 }

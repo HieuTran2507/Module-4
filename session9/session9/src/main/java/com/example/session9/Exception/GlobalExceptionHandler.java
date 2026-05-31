@@ -29,4 +29,48 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Response<Object>>
+    handleNotFound(ResourceNotFoundException ex){
+
+        Response<Object> response =
+                Response.builder()
+                        .status("FAIL")
+                        .message(ex.getMessage())
+                        .data(null)
+                        .build();
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(response);
+    }
+
+    @ExceptionHandler(DuplicateResourceException.class)
+    public ResponseEntity<Response<Object>>
+    handleDuplicate(DuplicateResourceException ex){
+
+        Response<Object> response =
+                Response.builder()
+                        .status("FAIL")
+                        .message(ex.getMessage())
+                        .data(null)
+                        .build();
+
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(response);
+    }
+
+    @ExceptionHandler(InvalidFileException.class)
+    public ResponseEntity<Response<Object>>
+    handleFileException(InvalidFileException ex){
+
+        Response<Object> response =
+                Response.builder()
+                        .status("FAIL")
+                        .message(ex.getMessage())
+                        .data(null)
+                        .build();
+
+        return ResponseEntity.badRequest()
+                .body(response);
+    }
 }
